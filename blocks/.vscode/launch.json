@@ -1,0 +1,95 @@
+/* Переменные */
+
+const container = document.querySelector('.places-list');
+const addButton = container.querySelector('.user-info__button');
+const form = document.forms.new;
+
+const initialCards = [
+    {
+      name: 'Архыз',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+      name: 'Челябинская область',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+      name: 'Иваново',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+      name: 'Камчатка',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+      name: 'Холмогорский район',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+      name: 'Байкал',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    },
+    {
+      name: 'Нургуш',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/khrebet-nurgush.jpg'
+    },
+    {
+      name: 'Тулиновка',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/tulinovka.jpg'
+    },
+    {
+      name: 'Остров Желтухина',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/zheltukhin-island.jpg'
+    },
+    {
+      name: 'Владивосток',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/vladivostok.jpg'
+     }
+  ];
+
+// Создаёт элемент карточки и возвращает его
+function createCard(name, image) {
+    const cardContainer = document.createElement('div');
+    const cardImage = document.createElement('div');
+    const cardButtonDel = document.createElement('button');
+    const cardDescription = document.createElement('div');
+    const cardName = document.createElement('h3');
+    const cardButtonLike = document.createElement('button');
+
+    cardContainer.classList.add('place-card');
+    cardImage.classList.add('.place-card__image');
+    cardImage.setAttribute('style', `background-image: url(${image})`);
+    cardButtonDel.classList.add('.place-card__delete-icon');
+    cardDescription.classList.add('.place-card__description');
+    cardName.classList.add('.place-card__name');
+    cardName.textContent=`${name}`;
+    cardButtonLike.classList.add('.place-card__like-icon');
+
+    cardContainer.appendChild(cardImage);
+    cardImage.appendChild(cardButtonDel);
+    cardContainer.appendChild(cardDescription);
+    cardDescription.appendChild(cardName);
+    cardDescription.appendChild(cardButtonLike);
+console.log(cardContainer);
+    return cardContainer;
+}
+
+initialCards.forEach(function(item){
+    container.appendChild(createCard(item.name, item.link));
+})
+
+// Добавляет элемент карточки
+function addCard(event) {
+    //event.preventDefault();
+
+    const name = form.elements.name;
+    const link = form.elements.link;
+    const cardContainer = createCard(name.value, link.value);
+
+    container.appendChild(cardContainer);
+    //form.reset();
+
+    //renderAdded();
+    //addButton.setAttribute('disabled', true);
+    //addButton.classList.add('input__btn_disabled');
+}

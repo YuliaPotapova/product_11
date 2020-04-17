@@ -1,0 +1,12 @@
+.error-message {
+    margin-top: 4px;
+    color: #FF0000;
+    font-size: 12px;
+    transition: .3s;
+    margin-bottom: 15px;
+    opacity: 0;
+}
+
+.error-message:last-of-type {
+    margin-bottom: 0;
+}
