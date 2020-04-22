@@ -1,4 +1,4 @@
-const path = require('path');
+п»їconst path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
@@ -24,24 +24,24 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|ico|svg)$/,
         use: [
-                'file-loader?name=./src/images/[name].[ext]', // указали папку, куда складывать изображения
-                {
-                        loader: 'image-webpack-loader',
-                        options: {}
-                }
-             ]
+          'file-loader?name=./src/images/[name].[ext]', // СѓРєР°Р·Р°Р»Рё РїР°РїРєСѓ, РєСѓРґР° СЃРєР»Р°РґС‹РІР°С‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
+          {
+            loader: 'image-webpack-loader',
+            options: {}
+          }
+        ]
       },
       {
-         test: /\.css$/i,
-         use: [
-                 (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
-                 'css-loader', 
-                 'postcss-loader'
-              ]
+        test: /\.css$/i,
+        use: [
+          (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
+          'css-loader', 
+          'postcss-loader'
+        ]
       },
       {
-         test: /\.(eot|ttf|woff|woff2)$/,
-         loader: 'file-loader?name=./src/vendor/[name].[ext]'
+        test: /\.(eot|ttf|woff|woff2)$/,
+        loader: 'file-loader?name=./src/vendor/[name].[ext]'
       }
     ]
   },
@@ -53,7 +53,7 @@ module.exports = {
       assetNameRegExp: /\.css$/g,
       cssProcessor: require('cssnano'),
       cssProcessorPluginOptions: {
-          preset: ['default'],
+        preset: ['default'],
       },
       canPrint: true
     }),
@@ -64,7 +64,7 @@ module.exports = {
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
   ]
 };

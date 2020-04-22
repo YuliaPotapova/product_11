@@ -1,9 +1,8 @@
 {
   "name": "product_11.github.io",
-  "version": "0.0.3",
-  "homepage": "https://yuliapotapova.github.io/product_11.github.io/",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.4",
+  "description": "Проектная работа по темам: модули в JS и webpack",
+  "main": "src/index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production rimraf dist && webpack --mode production",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --open --watch",
